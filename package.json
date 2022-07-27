@@ -1,0 +1,37 @@
+{
+  "name": "@anedomansky/vue-loaders",
+  "version": "1.0.0",
+  "description": "A collection of pure CSS loaders made available as Vue components.",
+  "main": "dist/library.js",
+  "module": "dist/library.mjs",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anedomansky/vue-loaders.git"
+  },
+  "keywords": [
+    "vue",
+    "loader",
+    "throbber"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anedomansky/vue-loaders/issues"
+  },
+  "homepage": "https://github.com/anedomansky/vue-loaders#readme",
+  "peerDependencies": {
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "rollup": "^2.77.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-vue": "^6.0.0"
+  }
+}
