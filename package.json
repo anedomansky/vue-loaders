@@ -5,7 +5,8 @@
   "main": "dist/library.js",
   "module": "dist/library.mjs",
   "files": [
-    "dist/*"
+    "dist/*",
+    "src/components/*"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,7 +22,7 @@
     "loader",
     "throbber"
   ],
-  "author": "",
+  "author": "Alexander Nedomansky <nedomanskya@outlook.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/anedomansky/vue-loaders/issues"

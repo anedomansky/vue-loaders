@@ -1,12 +1,12 @@
-import Box from "./Box.vue";
-import CirclingSquares from "./CirclingSquares.vue";
-import FlippingHexagons from "./FlippingHexagons.vue";
-import JumpingDots from "./JumpingDots.vue";
-import Overlay from "./Overlay.vue";
-import PulsatingDot from "./PulsatingDot.vue";
-import SpinningCircle from "./SpinningCircle.vue";
-import TravellingBar from "./TravellingBar.vue";
-import WanderingSquares from "./WanderingSquares.vue";
+import Box from "./components/Box.vue";
+import CirclingSquares from "./components/CirclingSquares.vue";
+import FlippingHexagons from "./components/FlippingHexagons.vue";
+import JumpingDots from "./components/JumpingDots.vue";
+import Overlay from "./components/Overlay.vue";
+import PulsatingDot from "./components/PulsatingDot.vue";
+import SpinningCircle from "./components/SpinningCircle.vue";
+import TravellingBar from "./components/TravellingBar.vue";
+import WanderingSquares from "./components/WanderingSquares.vue";
 
 export default {
   install: (app, options) => {
