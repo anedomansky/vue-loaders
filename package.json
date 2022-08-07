@@ -18,9 +18,11 @@
   "types": "./dist/src/index.d.ts",
   "scripts": {
     "dev": "vitepress dev docs",
-    "build": "vitepress build docs",
+    "build:docs": "vitepress build docs",
     "serve": "vitepress serve docs",
-    "build:library": "vite build && vue-tsc --declaration --emitDeclarationOnly",
+    "build": "vite build && npm run build:types",
+    "build:watch": "vite build --watch",
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly",
     "analyze": "vite build --config analyze.config.js",
     "publish:library": "npm publish --access public",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
