@@ -8,14 +8,22 @@ export default [
     output: [
       {
         format: 'esm',
-        file: 'dist/library.mjs',
+        file: 'dist/vue-loaders.mjs',
       },
       {
         format: 'cjs',
-        file: 'dist/library.js',
+        file: 'dist/vue-loaders.js',
+        globals: {
+          vue: 'Vue',
+        },
       },
     ],
     // css: false -> transforms <style>-blocks into imports so the css plugin can extract the styles
-    plugins: [css(), vue({ css: false }), peerDepsExternal()],
+    plugins: [
+      css({ output: 'vue-loaders.css' }),
+      vue({ css: false }),
+      peerDepsExternal(),
+    ],
+    external: ['vue'],
   },
 ];
