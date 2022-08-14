@@ -1,13 +1,21 @@
 <template>
-  <div className="loader-overlay">
+  <div :class="['loader-overlay', additionalClassNames]">
     <slot></slot>
   </div>
 </template>
 
-<script lang="ts">
-  import { defineComponent } from 'vue';
+<script setup lang="ts">
+  import { defineProps, toRefs } from 'vue';
 
-  export default defineComponent({});
+  const props = defineProps({
+    additionalClassNames: {
+      required: false,
+      default: '',
+      type: String,
+    },
+  });
+
+  const { additionalClassNames } = toRefs(props);
 </script>
 
 <style scoped>
