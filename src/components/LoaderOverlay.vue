@@ -1,5 +1,6 @@
 <template>
   <div :class="['loader-overlay', additionalClassNames]">
+    <div class="loader-overlay__shade"></div>
     <slot></slot>
   </div>
 </template>
@@ -22,6 +23,14 @@
   .loader-overlay {
     display: grid;
     place-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .loader-overlay__shade {
     background-color: #777;
     bottom: 0;
     left: 0;
