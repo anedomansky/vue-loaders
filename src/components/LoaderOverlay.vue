@@ -1,6 +1,6 @@
 <template>
   <div :class="['loader-overlay', additionalClassNames]">
-    <div class="loader-overlay__shade"></div>
+    <div :class="['loader-overlay__shade', additionalShadeClassNames]"></div>
     <slot></slot>
   </div>
 </template>
@@ -14,9 +14,14 @@
       default: '',
       type: String,
     },
+    additionalShadeClassNames: {
+      required: false,
+      default: '',
+      type: String,
+    },
   });
 
-  const { additionalClassNames } = toRefs(props);
+  const { additionalClassNames, additionalShadeClassNames } = toRefs(props);
 </script>
 
 <style scoped>
