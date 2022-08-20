@@ -1,6 +1,9 @@
 <template>
   <div :class="['loader-box', additionalClassNames]">
     <slot></slot>
+    <p :class="['loader-text', additionalLoaderTextClassNames]">
+      {{ loaderText }}
+    </p>
   </div>
 </template>
 
@@ -13,18 +16,40 @@
       default: '',
       type: String,
     },
+    additionalLoaderTextClassNames: {
+      required: false,
+      default: '',
+      type: String,
+    },
+    loaderText: {
+      required: false,
+      default: '',
+      type: String,
+    },
   });
 
-  const { additionalClassNames } = toRefs(props);
+  const { additionalClassNames, additionalLoaderTextClassNames, loaderText } =
+    toRefs(props);
 </script>
 
 <style scoped>
   .loader-box {
-    height: 15vmin;
-    width: 15vmin;
-    background-color: #fff;
+    --box: 15vmin;
+    --background-color: #fff;
+    --z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    height: var(--box);
+    width: var(--box);
+    background-color: var(--background-color);
     border-radius: 5px;
-    z-index: 1;
+    z-index: var(--z-index);
     padding: 10px;
+  }
+
+  .loader-text {
+    margin: 0;
+    word-break: break-word;
   }
 </style>
