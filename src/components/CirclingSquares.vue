@@ -8,21 +8,15 @@
       :additional-loader-text-class-names="loaderTextClasses"
       :loader-text="loaderText"
     >
-      <loader-container
-        :additional-class-names="loaderContainerClasses"
-        class="circling-squares"
-      >
+      <loader-container :class="['circling-squares', loaderContainerClasses]">
         <loader-item
-          :additional-class-names="loaderItemClasses"
-          class="circling-square"
+          :class="['circling-square', loaderItemClasses]"
         ></loader-item>
         <loader-item
-          :additional-class-names="loaderItemClasses"
-          class="circling-square"
+          :class="['circling-square', loaderItemClasses]"
         ></loader-item>
         <loader-item
-          :additional-class-names="loaderItemClasses"
-          class="circling-square"
+          :class="['circling-square', loaderItemClasses]"
         ></loader-item>
       </loader-container>
     </loader-box>
