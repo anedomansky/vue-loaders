@@ -21,11 +21,11 @@
 <style scoped>
   .loader-container {
     display: grid;
+    flex: 1;
     place-items: center;
   }
 
-  .loader-container.jumping-dots,
-  .loader-container.flipping-hexagons {
+  .loader-container.jumping-dots {
     grid-template-columns: repeat(3, 1fr);
   }
 </style>

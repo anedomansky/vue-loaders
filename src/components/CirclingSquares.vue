@@ -82,7 +82,6 @@
 <style scoped>
   .circling-squares {
     display: block;
-    height: 100%;
     place-items: normal;
     position: relative;
   }
