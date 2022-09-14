@@ -1,14 +1,14 @@
 <template>
-  <div :class="['loader-box', additionalClassNames]">
+  <dialog ref="loader" :class="['loader-box', additionalClassNames]">
     <slot></slot>
     <p :class="['loader-text', additionalLoaderTextClassNames]">
       {{ loaderText }}
     </p>
-  </div>
+  </dialog>
 </template>
 
 <script setup lang="ts">
-  import { defineProps, toRefs } from 'vue';
+  import { defineProps, ref, toRefs } from 'vue';
 
   const props = defineProps({
     additionalClassNames: {
@@ -30,6 +30,21 @@
 
   const { additionalClassNames, additionalLoaderTextClassNames, loaderText } =
     toRefs(props);
+
+  const loader = ref<HTMLDialogElement | null>(null);
+
+  function showLoader() {
+    loader.value?.showModal();
+  }
+
+  function hideLoader() {
+    loader.value?.close();
+  }
+
+  defineExpose({
+    showLoader,
+    hideLoader,
+  });
 </script>
 
 <style scoped>
@@ -46,6 +61,15 @@
     border-radius: 5px;
     z-index: var(--z-index);
     padding: 10px;
+  }
+
+  dialog::backdrop {
+    background-color: #777;
+    opacity: 0.3;
+  }
+
+  dialog:not([open]) {
+    display: none;
   }
 
   .loader-text {
