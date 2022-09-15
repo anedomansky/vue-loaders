@@ -26,16 +26,6 @@
   import { defineProps, ref, toRefs } from 'vue';
 
   const props = defineProps({
-    loaderOverlayClasses: {
-      required: false,
-      default: '',
-      type: String,
-    },
-    loaderShadeClasses: {
-      required: false,
-      default: '',
-      type: String,
-    },
     loaderDialogClasses: {
       required: false,
       default: '',

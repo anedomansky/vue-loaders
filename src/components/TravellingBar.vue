@@ -1,41 +1,24 @@
 <template>
-  <loader-overlay
-    :additional-class-names="loaderOverlayClasses"
-    :additional-shade-class-names="loaderShadeClasses"
+  <loader-dialog
+    ref="loader"
+    :additional-class-names="loaderDialogClasses"
+    :additional-loader-text-class-names="loaderTextClasses"
+    :loader-text="loaderText"
   >
-    <loader-box
-      :additional-class-names="loaderBoxClasses"
-      :additional-loader-text-class-names="loaderTextClasses"
-      :loader-text="loaderText"
-    >
-      <loader-container :class="loaderContainerClasses">
-        <loader-item
-          :class="['travelling-bar', loaderItemClasses]"
-        ></loader-item>
-      </loader-container>
-    </loader-box>
-  </loader-overlay>
+    <loader-container :class="loaderContainerClasses">
+      <loader-item :class="['travelling-bar', loaderItemClasses]"></loader-item>
+    </loader-container>
+  </loader-dialog>
 </template>
 
 <script setup lang="ts">
-  import LoaderOverlay from './LoaderOverlay.vue';
-  import LoaderBox from './LoaderBox.vue';
+  import LoaderDialog from './LoaderDialog.vue';
   import LoaderItem from './LoaderItem.vue';
   import LoaderContainer from './LoaderContainer.vue';
-  import { defineProps, toRefs } from 'vue';
+  import { defineProps, ref, toRefs } from 'vue';
 
   const props = defineProps({
-    loaderOverlayClasses: {
-      required: false,
-      default: '',
-      type: String,
-    },
-    loaderShadeClasses: {
-      required: false,
-      default: '',
-      type: String,
-    },
-    loaderBoxClasses: {
+    loaderDialogClasses: {
       required: false,
       default: '',
       type: String,
@@ -63,14 +46,27 @@
   });
 
   const {
-    loaderOverlayClasses,
-    loaderShadeClasses,
-    loaderBoxClasses,
+    loaderDialogClasses,
     loaderTextClasses,
     loaderText,
     loaderContainerClasses,
     loaderItemClasses,
   } = toRefs(props);
+
+  const loader = ref<InstanceType<typeof LoaderDialog> | null>(null);
+
+  function showLoader() {
+    loader.value?.showLoader();
+  }
+
+  function hideLoader() {
+    loader.value?.hideLoader();
+  }
+
+  defineExpose({
+    showLoader,
+    hideLoader,
+  });
 </script>
 
 <style scoped>
