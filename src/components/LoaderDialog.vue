@@ -1,5 +1,5 @@
 <template>
-  <dialog ref="loader" :class="['loader-box', additionalClassNames]">
+  <dialog ref="loader" :class="['loader-dialog', additionalClassNames]">
     <slot></slot>
     <p :class="['loader-text', additionalLoaderTextClassNames]">
       {{ loaderText }}
@@ -48,10 +48,9 @@
 </script>
 
 <style scoped>
-  .loader-box {
-    --box: 15vmin;
+  .loader-dialog {
+    --box: 20vmin;
     --background-color: #fff;
-    --z-index: 1;
 
     display: flex;
     flex-direction: column;
@@ -59,7 +58,6 @@
     width: var(--box);
     background-color: var(--background-color);
     border-radius: 5px;
-    z-index: var(--z-index);
     padding: 10px;
   }
 
@@ -74,6 +72,23 @@
 
   .loader-text {
     margin: 0;
-    word-break: break-word;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @media screen and (min-width: 765px) {
+    .loader-dialog {
+      --box: 15vmin;
+    }
+
+    .loader-text {
+      word-break: break-word;
+      width: auto;
+      text-overflow: initial;
+      white-space: initial;
+      overflow: initial;
+    }
   }
 </style>

@@ -83,7 +83,7 @@
   }
 
   .flipping-hexagon {
-    --hexagon: 1vmin;
+    --hexagon: 1.25vmin;
     /* 1:square root of 3 */
     --hexagon-border: calc(var(--hexagon) * 1.73205081);
     --hexagon-width: calc(var(--hexagon-border) * 2);
@@ -143,6 +143,12 @@
     100% {
       opacity: 1;
       transform: perspective(140px) rotateY(-180deg);
+    }
+  }
+
+  @media screen and (min-width: 765px) {
+    .flipping-hexagon {
+      --hexagon: 1vmin;
     }
   }
 </style>
