@@ -106,4 +106,10 @@
       transform: rotate(360deg);
     }
   }
+
+  @media screen and (min-width: 765px) {
+    .spinning-circle {
+      --spinner: 6vmin;
+    }
+  }
 </style>

@@ -71,8 +71,8 @@
 
 <style scoped>
   .travelling-bar {
-    --bar-height: 0.5vmin;
-    --bar-width: 5vmin;
+    --bar-height: 1vmin;
+    --bar-width: 10vmin;
     --travelling-bar-color: #485665;
   }
 
@@ -103,6 +103,13 @@
     25%,
     33% {
       transform: scaleX(1);
+    }
+  }
+
+  @media screen and (min-width: 765px) {
+    .travelling-bar {
+      --bar-height: 0.75vmin;
+      --bar-width: 7vmin;
     }
   }
 </style>

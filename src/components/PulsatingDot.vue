@@ -71,7 +71,7 @@
 
 <style scoped>
   .pulsating-dot {
-    --pulsating-dot: 3vmin;
+    --pulsating-dot: 4vmin;
     --pulsating-dot-color: #485665;
 
     animation: pulse 1s linear infinite;
@@ -87,6 +87,12 @@
     }
     100% {
       box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+    }
+  }
+
+  @media screen and (min-width: 765px) {
+    .pulsating-dot {
+      --pulsating-dot: 3vmin;
     }
   }
 </style>

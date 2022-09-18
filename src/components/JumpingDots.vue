@@ -77,7 +77,7 @@
   }
 
   .jumping-dot::before {
-    --dot: 2vmin;
+    --dot: 3.5vmin;
     --dot-color: #485665;
 
     animation: jump 1s ease-in-out infinite;
@@ -99,6 +99,12 @@
     }
     50% {
       transform: translatey(2vmin);
+    }
+  }
+
+  @media screen and (min-width: 765px) {
+    .jumping-dot::before {
+      --dot: 2.5vmin;
     }
   }
 </style>

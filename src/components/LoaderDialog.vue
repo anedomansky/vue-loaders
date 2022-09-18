@@ -59,6 +59,7 @@
     background-color: var(--background-color);
     border-radius: 5px;
     padding: 10px;
+    border: 0;
   }
 
   dialog::backdrop {

@@ -73,7 +73,7 @@
 
 <style scoped>
   .wandering-square {
-    --square: 3vmin;
+    --square: 3.5vmin;
     --square-color: #485665;
   }
 
@@ -122,6 +122,12 @@
     }
     75% {
       transform: translate(-100%, 0);
+    }
+  }
+
+  @media screen and (min-width: 765px) {
+    .wandering-square {
+      --square: 3vmin;
     }
   }
 </style>

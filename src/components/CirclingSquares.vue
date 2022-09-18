@@ -85,7 +85,7 @@
   }
 
   .circling-square {
-    --square: 3vmin;
+    --square: 4vmin;
     --square-color: #485665;
 
     display: block;
@@ -180,6 +180,12 @@
     75% {
       top: 10%;
       left: 10%;
+    }
+  }
+
+  @media screen and (min-width: 765px) {
+    .circling-square {
+      --square: 3vmin;
     }
   }
 </style>
