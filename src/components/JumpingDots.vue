@@ -4,6 +4,7 @@
     :additional-class-names="loaderDialogClasses"
     :additional-loader-text-class-names="loaderTextClasses"
     :loader-text="loaderText"
+    :loader-background-color="loaderBackgroundColor"
   >
     <loader-container :class="['jumping-dots', loaderContainerClasses]">
       <loader-item :class="['jumping-dot', loaderItemClasses]"></loader-item>
@@ -45,6 +46,11 @@
       default: '',
       type: String,
     },
+    loaderBackgroundColor: {
+      required: false,
+      default: undefined,
+      type: String,
+    },
   });
 
   const {
@@ -53,6 +59,7 @@
     loaderText,
     loaderContainerClasses,
     loaderItemClasses,
+    loaderBackgroundColor,
   } = toRefs(props);
 
   const loader = ref<InstanceType<typeof LoaderDialog> | null>(null);

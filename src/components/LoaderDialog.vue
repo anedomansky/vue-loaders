@@ -26,6 +26,11 @@
       default: '',
       type: String,
     },
+    loaderBackgroundColor: {
+      required: false,
+      default: '#fff',
+      type: String,
+    },
   });
 
   const { additionalClassNames, additionalLoaderTextClassNames, loaderText } =
@@ -50,7 +55,7 @@
 <style scoped>
   .loader-dialog {
     --box: 20vmin;
-    --background-color: #fff;
+    --background-color: v-bind(loaderBackgroundColor);
 
     display: flex;
     flex-direction: column;
