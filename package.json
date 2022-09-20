@@ -24,7 +24,8 @@
     "build:watch": "vite build --watch",
     "build:types": "vue-tsc --declaration --emitDeclarationOnly",
     "publish:library": "npm publish --access public",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "test": "vitest"
   },
   "repository": {
     "type": "git",
@@ -55,6 +56,7 @@
     "typescript": "^4.7.4",
     "vite": "^3.0.4",
     "vitepress": "^1.0.0-alpha.4",
+    "vitest": "^0.23.4",
     "vue-eslint-parser": "^9.1.0",
     "vue-tsc": "^0.39.5"
   }
