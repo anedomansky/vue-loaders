@@ -49,6 +49,11 @@
       default: undefined,
       type: String,
     },
+    loaderColor: {
+      required: false,
+      default: '#485665',
+      type: String,
+    },
   });
 
   const {
@@ -80,7 +85,7 @@
   .travelling-bar {
     --bar-height: 1vmin;
     --bar-width: 10vmin;
-    --travelling-bar-color: #485665;
+    --travelling-bar-color: v-bind(loaderColor);
   }
 
   .travelling-bar::before {

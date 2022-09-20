@@ -57,6 +57,11 @@
       default: undefined,
       type: String,
     },
+    loaderColor: {
+      required: false,
+      default: '#485665',
+      type: String,
+    },
   });
 
   const {
@@ -95,7 +100,7 @@
     --hexagon-border: calc(var(--hexagon) * 1.73205081);
     --hexagon-width: calc(var(--hexagon-border) * 2);
     --hexagon-height: calc(var(--hexagon) * 2);
-    --hexagon-color: #485665;
+    --hexagon-color: v-bind(loaderColor);
 
     margin-top: var(--hexagon);
     height: var(--hexagon-height);

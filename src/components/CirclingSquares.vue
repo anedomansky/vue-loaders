@@ -57,6 +57,11 @@
       default: undefined,
       type: String,
     },
+    loaderColor: {
+      required: false,
+      default: '#485665',
+      type: String,
+    },
   });
 
   const {
@@ -93,7 +98,7 @@
 
   .circling-square {
     --square: 4vmin;
-    --square-color: #485665;
+    --square-color: v-bind(loaderColor);
 
     display: block;
     position: initial;

@@ -51,6 +51,11 @@
       default: undefined,
       type: String,
     },
+    loaderColor: {
+      required: false,
+      default: '#485665',
+      type: String,
+    },
   });
 
   const {
@@ -85,7 +90,7 @@
 
   .jumping-dot::before {
     --dot: 3.5vmin;
-    --dot-color: #485665;
+    --dot-color: v-bind(loaderColor);
 
     animation: jump 1s ease-in-out infinite;
     background-color: var(--dot-color);

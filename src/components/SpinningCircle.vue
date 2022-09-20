@@ -51,6 +51,11 @@
       default: undefined,
       type: String,
     },
+    loaderColor: {
+      required: false,
+      default: '#485665',
+      type: String,
+    },
   });
 
   const {
@@ -83,7 +88,7 @@
     --spinner: 4vmin;
     --border-inner-spinner: 3px;
     --border-outer-spinner: calc(var(--border-inner-spinner) * 2);
-    --spinner-color: #485665;
+    --spinner-color: v-bind(loaderColor);
   }
 
   .spinning-circle::before,

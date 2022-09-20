@@ -49,6 +49,11 @@
       default: undefined,
       type: String,
     },
+    loaderColor: {
+      required: false,
+      default: '#485665',
+      type: String,
+    },
   });
 
   const {
@@ -79,7 +84,7 @@
 <style scoped>
   .pulsating-dot {
     --pulsating-dot: 4vmin;
-    --pulsating-dot-color: #485665;
+    --pulsating-dot-color: v-bind(loaderColor);
 
     animation: pulse 1s linear infinite;
     width: var(--pulsating-dot);

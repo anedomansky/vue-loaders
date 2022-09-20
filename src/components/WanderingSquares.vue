@@ -51,6 +51,11 @@
       default: undefined,
       type: String,
     },
+    loaderColor: {
+      required: false,
+      default: '#485665',
+      type: String,
+    },
   });
 
   const {
@@ -81,7 +86,7 @@
 <style scoped>
   .wandering-square {
     --square: 3.5vmin;
-    --square-color: #485665;
+    --square-color: v-bind(loaderColor);
   }
 
   .wandering-square::before,
