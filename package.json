@@ -21,7 +21,7 @@
     "build:watch": "vite build --watch",
     "build:types": "vue-tsc --declaration --emitDeclarationOnly",
     "publish:library": "npm publish --access public",
-    "lint": "eslint --ext .ts,.vue --ignore-path .gitignore --fix src",
+    "lint": "eslint --ext .ts,.vue",
     "test": "vitest",
     "test:coverage": "vitest run --coverage"
   },
