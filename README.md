@@ -10,31 +10,31 @@ Different CSS-loaders/-throbbers:
 
 - `CirclingSquares.vue`:
 
-![CirclingSquares](/path/to/image.png "Text to show on mouseover")
+![CirclingSquares](./assets/CirclingSquares.gif "CirclingSquares")
 
 - `FlippingHexagons.vue`:
 
-![FlippingHexagons](/path/to/image.png "Text to show on mouseover")
+![FlippingHexagons](./assets/FlippingHexagons.gif "FlippingHexagons")
 
 - `JumpingDots.vue`:
 
-![JumpingDots](/path/to/image.png "Text to show on mouseover")
+![JumpingDots](./assets/JumpingDots.gif "JumpingDots")
 
 - `PulsatingDot.vue`:
 
-![PulsatingDot](/path/to/image.png "Text to show on mouseover")
+![PulsatingDot](./assets/PulsatingDot.gif "PulsatingDot")
 
 - `SpinningCircle.vue`:
 
-![SpinningCircle](/path/to/image.png "Text to show on mouseover")
+![SpinningCircle](./assets/SpinningCircle.gif "SpinningCircle")
 
 - `TravellingBar.vue`:
 
-![TravellingBar](/path/to/image.png "Text to show on mouseover")
+![TravellingBar](./assets/TravellingBar.gif "TravellingBar")
 
 - `WanderingSquares.vue`:
 
-![WanderingSquares](/path/to/image.png "Text to show on mouseover")
+![WanderingSquares](./assets/WanderingSquares.gif "WanderingSquares")
 
 ## Installation
 
@@ -43,3 +43,4 @@ Different CSS-loaders/-throbbers:
 ## Usage
 
 
+TODO: add animation length prop
