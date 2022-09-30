@@ -1,13 +1,13 @@
 <template>
   <loader-dialog
     ref="loader"
-    :additional-class-names="loaderDialogClasses"
-    :additional-loader-text-class-names="loaderTextClasses"
-    :loader-text="loaderText"
-    :loader-background-color="loaderBackgroundColor"
+    :additional-class-names="dialogClasses"
+    :additional-loader-text-class-names="textClasses"
+    :text="text"
+    :background-color="backgroundColor"
   >
-    <loader-container :class="loaderContainerClasses">
-      <loader-item :class="['pulsating-dot', loaderItemClasses]"></loader-item>
+    <loader-container :class="containerClasses">
+      <loader-item :class="['pulsating-dot', itemClasses]"></loader-item>
     </loader-container>
   </loader-dialog>
 </template>
@@ -19,50 +19,56 @@
   import { defineProps, ref, toRefs } from 'vue';
 
   const props = defineProps({
-    loaderDialogClasses: {
+    dialogClasses: {
       required: false,
       default: '',
       type: String,
     },
-    loaderTextClasses: {
+    textClasses: {
       required: false,
       default: '',
       type: String,
     },
-    loaderText: {
+    text: {
       required: false,
       default: '',
       type: String,
     },
-    loaderContainerClasses: {
+    containerClasses: {
       required: false,
       default: '',
       type: String,
     },
-    loaderItemClasses: {
+    itemClasses: {
       required: false,
       default: '',
       type: String,
     },
-    loaderBackgroundColor: {
+    backgroundColor: {
       required: false,
       default: undefined,
       type: String,
     },
-    loaderColor: {
+    color: {
       required: false,
       default: '#485665',
+      type: String,
+    },
+    animationDuration: {
+      required: false,
+      default: '1s',
       type: String,
     },
   });
 
   const {
-    loaderDialogClasses,
-    loaderTextClasses,
-    loaderText,
-    loaderContainerClasses,
-    loaderItemClasses,
-    loaderBackgroundColor,
+    dialogClasses,
+    textClasses,
+    text,
+    containerClasses,
+    itemClasses,
+    backgroundColor,
+    animationDuration,
   } = toRefs(props);
 
   const loader = ref<InstanceType<typeof LoaderDialog> | null>(null);
@@ -84,9 +90,13 @@
 <style scoped>
   .pulsating-dot {
     --pulsating-dot: 4vmin;
-    --pulsating-dot-color: v-bind(loaderColor);
+    --pulsating-dot-color: v-bind(color);
+    --animation-duration: v-bind(animationDuration);
 
-    animation: pulse 1s linear infinite;
+    animation-name: pulse;
+    animation-duration: var(--animation-duration);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
     width: var(--pulsating-dot);
     height: var(--pulsating-dot);
     background-color: var(--pulsating-dot-color);

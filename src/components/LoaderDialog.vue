@@ -1,8 +1,12 @@
 <template>
-  <dialog ref="loader" :class="['loader-dialog', additionalClassNames]">
+  <dialog
+    ref="loader"
+    :class="['loader-dialog', additionalClassNames]"
+    @cancel.prevent
+  >
     <slot></slot>
-    <p :class="['loader-text', additionalLoaderTextClassNames]">
-      {{ loaderText }}
+    <p :class="['loader-text', additionalTextClassNames]">
+      {{ text }}
     </p>
   </dialog>
 </template>
@@ -16,24 +20,24 @@
       default: '',
       type: String,
     },
-    additionalLoaderTextClassNames: {
+    additionalTextClassNames: {
       required: false,
       default: '',
       type: String,
     },
-    loaderText: {
+    text: {
       required: false,
       default: '',
       type: String,
     },
-    loaderBackgroundColor: {
+    backgroundColor: {
       required: false,
       default: '#fff',
       type: String,
     },
   });
 
-  const { additionalClassNames, additionalLoaderTextClassNames, loaderText } =
+  const { additionalClassNames, additionalTextClassNames, text } =
     toRefs(props);
 
   const loader = ref<HTMLDialogElement | null>(null);
@@ -55,7 +59,7 @@
 <style scoped>
   .loader-dialog {
     --box: 20vmin;
-    --background-color: v-bind(loaderBackgroundColor);
+    --background-color: v-bind(backgroundColor);
 
     display: flex;
     flex-direction: column;

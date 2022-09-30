@@ -1,21 +1,15 @@
 <template>
   <loader-dialog
     ref="loader"
-    :additional-class-names="loaderDialogClasses"
-    :additional-loader-text-class-names="loaderTextClasses"
-    :loader-text="loaderText"
-    :loader-background-color="loaderBackgroundColor"
+    :additional-class-names="dialogClasses"
+    :additional-loader-text-class-names="textClasses"
+    :text="text"
+    :background-color="backgroundColor"
   >
-    <loader-container :class="['flipping-hexagons', loaderContainerClasses]">
-      <loader-item
-        :class="['flipping-hexagon', loaderItemClasses]"
-      ></loader-item>
-      <loader-item
-        :class="['flipping-hexagon', loaderItemClasses]"
-      ></loader-item>
-      <loader-item
-        :class="['flipping-hexagon', loaderItemClasses]"
-      ></loader-item>
+    <loader-container :class="['flipping-hexagons', containerClasses]">
+      <loader-item :class="['flipping-hexagon', itemClasses]"></loader-item>
+      <loader-item :class="['flipping-hexagon', itemClasses]"></loader-item>
+      <loader-item :class="['flipping-hexagon', itemClasses]"></loader-item>
     </loader-container>
   </loader-dialog>
 </template>
@@ -27,50 +21,56 @@
   import { defineProps, ref, toRefs } from 'vue';
 
   const props = defineProps({
-    loaderDialogClasses: {
+    dialogClasses: {
       required: false,
       default: '',
       type: String,
     },
-    loaderTextClasses: {
+    textClasses: {
       required: false,
       default: '',
       type: String,
     },
-    loaderText: {
+    text: {
       required: false,
       default: '',
       type: String,
     },
-    loaderContainerClasses: {
+    containerClasses: {
       required: false,
       default: '',
       type: String,
     },
-    loaderItemClasses: {
+    itemClasses: {
       required: false,
       default: '',
       type: String,
     },
-    loaderBackgroundColor: {
+    backgroundColor: {
       required: false,
       default: undefined,
       type: String,
     },
-    loaderColor: {
+    color: {
       required: false,
       default: '#485665',
+      type: String,
+    },
+    animationDuration: {
+      required: false,
+      default: '2s',
       type: String,
     },
   });
 
   const {
-    loaderDialogClasses,
-    loaderTextClasses,
-    loaderText,
-    loaderContainerClasses,
-    loaderItemClasses,
-    loaderBackgroundColor,
+    dialogClasses,
+    textClasses,
+    text,
+    containerClasses,
+    itemClasses,
+    backgroundColor,
+    animationDuration,
   } = toRefs(props);
 
   const loader = ref<InstanceType<typeof LoaderDialog> | null>(null);
@@ -100,14 +100,18 @@
     --hexagon-border: calc(var(--hexagon) * 1.73205081);
     --hexagon-width: calc(var(--hexagon-border) * 2);
     --hexagon-height: calc(var(--hexagon) * 2);
-    --hexagon-color: v-bind(loaderColor);
+    --hexagon-color: v-bind(color);
+    --animation-duration: v-bind(animationDuration);
 
     margin-top: var(--hexagon);
     height: var(--hexagon-height);
     width: var(--hexagon-width);
     position: relative;
     background-color: var(--hexagon-color);
-    animation: slide 2s linear infinite;
+    animation-name: slide;
+    animation-duration: var(--animation-duration);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
   }
 
   .flipping-hexagon:nth-of-type(2) {

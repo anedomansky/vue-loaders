@@ -1,15 +1,13 @@
 <template>
   <loader-dialog
     ref="loader"
-    :additional-class-names="loaderDialogClasses"
-    :additional-loader-text-class-names="loaderTextClasses"
-    :loader-text="loaderText"
-    :loader-background-color="loaderBackgroundColor"
+    :additional-class-names="dialogClasses"
+    :additional-loader-text-class-names="textClasses"
+    :text="text"
+    :background-color="backgroundColor"
   >
-    <loader-container :class="loaderContainerClasses">
-      <loader-item
-        :class="['wandering-square', loaderItemClasses]"
-      ></loader-item>
+    <loader-container :class="containerClasses">
+      <loader-item :class="['wandering-square', itemClasses]"></loader-item>
     </loader-container>
   </loader-dialog>
 </template>
@@ -21,50 +19,56 @@
   import { defineProps, ref, toRefs } from 'vue';
 
   const props = defineProps({
-    loaderDialogClasses: {
+    dialogClasses: {
       required: false,
       default: '',
       type: String,
     },
-    loaderTextClasses: {
+    textClasses: {
       required: false,
       default: '',
       type: String,
     },
-    loaderText: {
+    text: {
       required: false,
       default: '',
       type: String,
     },
-    loaderContainerClasses: {
+    containerClasses: {
       required: false,
       default: '',
       type: String,
     },
-    loaderItemClasses: {
+    itemClasses: {
       required: false,
       default: '',
       type: String,
     },
-    loaderBackgroundColor: {
+    backgroundColor: {
       required: false,
       default: undefined,
       type: String,
     },
-    loaderColor: {
+    color: {
       required: false,
       default: '#485665',
+      type: String,
+    },
+    animationDuration: {
+      required: false,
+      default: '2s',
       type: String,
     },
   });
 
   const {
-    loaderDialogClasses,
-    loaderTextClasses,
-    loaderText,
-    loaderContainerClasses,
-    loaderItemClasses,
-    loaderBackgroundColor,
+    dialogClasses,
+    textClasses,
+    text,
+    containerClasses,
+    itemClasses,
+    backgroundColor,
+    animationDuration,
   } = toRefs(props);
 
   const loader = ref<InstanceType<typeof LoaderDialog> | null>(null);
@@ -86,7 +90,8 @@
 <style scoped>
   .wandering-square {
     --square: 3.5vmin;
-    --square-color: v-bind(loaderColor);
+    --square-color: v-bind(color);
+    --animation-duration: v-bind(animationDuration);
   }
 
   .wandering-square::before,
@@ -94,13 +99,21 @@
     width: var(--square);
     height: var(--square);
     background-color: var(--square-color);
-    animation: circling 2s linear infinite alternate;
+    animation-name: circling;
+    animation-duration: var(--animation-duration);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
     top: calc(50% - var(--square));
     left: calc(50% - var(--square));
   }
 
   .wandering-square::after {
-    animation: circling-reverse 2s linear infinite alternate;
+    animation-name: circling-reverse;
+    animation-duration: var(--animation-duration);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
     top: 50%;
     left: 50%;
   }

@@ -1,13 +1,13 @@
 <template>
   <loader-dialog
     ref="loader"
-    :additional-class-names="loaderDialogClasses"
-    :additional-loader-text-class-names="loaderTextClasses"
-    :loader-text="loaderText"
-    :loader-background-color="loaderBackgroundColor"
+    :additional-class-names="dialogClasses"
+    :additional-loader-text-class-names="textClasses"
+    :text="text"
+    :background-color="backgroundColor"
   >
-    <loader-container :class="loaderContainerClasses">
-      <loader-item :class="['travelling-bar', loaderItemClasses]"></loader-item>
+    <loader-container :class="containerClasses">
+      <loader-item :class="['travelling-bar', itemClasses]"></loader-item>
     </loader-container>
   </loader-dialog>
 </template>
@@ -19,50 +19,56 @@
   import { defineProps, ref, toRefs } from 'vue';
 
   const props = defineProps({
-    loaderDialogClasses: {
+    dialogClasses: {
       required: false,
       default: '',
       type: String,
     },
-    loaderTextClasses: {
+    textClasses: {
       required: false,
       default: '',
       type: String,
     },
-    loaderText: {
+    text: {
       required: false,
       default: '',
       type: String,
     },
-    loaderContainerClasses: {
+    containerClasses: {
       required: false,
       default: '',
       type: String,
     },
-    loaderItemClasses: {
+    itemClasses: {
       required: false,
       default: '',
       type: String,
     },
-    loaderBackgroundColor: {
+    backgroundColor: {
       required: false,
       default: undefined,
       type: String,
     },
-    loaderColor: {
+    color: {
       required: false,
       default: '#485665',
+      type: String,
+    },
+    animationDuration: {
+      required: false,
+      default: '1s',
       type: String,
     },
   });
 
   const {
-    loaderDialogClasses,
-    loaderTextClasses,
-    loaderText,
-    loaderContainerClasses,
-    loaderItemClasses,
-    loaderBackgroundColor,
+    dialogClasses,
+    textClasses,
+    text,
+    containerClasses,
+    itemClasses,
+    backgroundColor,
+    animationDuration,
   } = toRefs(props);
 
   const loader = ref<InstanceType<typeof LoaderDialog> | null>(null);
@@ -85,14 +91,18 @@
   .travelling-bar {
     --bar-height: 1vmin;
     --bar-width: 10vmin;
-    --travelling-bar-color: v-bind(loaderColor);
+    --travelling-bar-color: v-bind(color);
+    --animation-duration: v-bind(animationDuration);
   }
 
   .travelling-bar::before {
     width: var(--bar-width);
     height: var(--bar-height);
     background-color: var(--travelling-bar-color);
-    animation: bar 1s ease-in-out infinite;
+    animation-name: bar;
+    animation-duration: var(--animation-duration);
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
   }
 
   @keyframes bar {
