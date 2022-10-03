@@ -23,7 +23,8 @@
     "publish:library": "npm publish --access public",
     "lint": "eslint --ext .ts,.vue",
     "test": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "npm run lint && npm run test"
   },
   "repository": {
     "type": "git",
